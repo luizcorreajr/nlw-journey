@@ -4,7 +4,10 @@ export function App() {
   return (
     <div className="h-screen flex items-center justify-center bg-pattern bg-no-repeat bg-center">
       <div className="max-w-3xl w-full px-6 text-center space-y-10">
-        <p className="text-zinc-300 text-lg">Invite your friends and plan your next trip!</p>
+        <div className="flex flex-col items-center gap-3">
+          <img src="/logo.svg" alt="plann.er"/>
+          <p className="text-zinc-300 text-lg">Invite your friends and plan your next trip!</p>
+        </div>
         
         <div className="h-16 bg-zinc-900 px-4 rounded-xl flex items-center gap-3">
           <div className="flex items-center gap-2 flex-1">
