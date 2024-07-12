@@ -8,6 +8,10 @@ export function App() {
     setIsGuestsInputOpen(true)
   }
 
+  function closeGuestsInput() {
+    setIsGuestsInputOpen(false)
+  }
+
   return (
     <div className="h-screen flex items-center justify-center bg-pattern bg-no-repeat bg-center">
       <div className="max-w-3xl w-full px-6 text-center space-y-10">
@@ -20,18 +24,18 @@ export function App() {
           <div className="h-16 bg-zinc-900 px-4 rounded-xl flex items-center gap-3">
             <div className="flex items-center gap-2 flex-1">
               <MapPin className="size-5 text-zinc-400"/>
-              <input type="text" placeholder="Where are you going?" className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1" />
+              <input disabled={isGuestsInputOpen} type="text" placeholder="Where are you going?" className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1" />
             </div>
 
             <div className="flex items-center gap-2 ">
               <Calendar className="size-5 text-zinc-400"/>
-              <input type="text" placeholder="When?" className="bg-transparent text-lg placeholder-zinc-400 w-40 outline-none" />
+              <input disabled={isGuestsInputOpen} type="text" placeholder="When?" className="bg-transparent text-lg placeholder-zinc-400 w-40 outline-none" />
             </div>
 
-            <div className="w-px h-6 bg-zinc-800"></div>
+            <div className="w-px h-6 bg-zinc-800"/>
 
             {isGuestsInputOpen ? (
-              <button className="h-10 bg-zinc-800 text-zinc-200 rounded-lg px-5 font-medium flex items-center gap-2 hover:bg-zinc-700">
+              <button onClick={closeGuestsInput} className="h-10 bg-zinc-800 text-zinc-200 rounded-lg px-5 font-medium flex items-center gap-2 hover:bg-zinc-700">
                 Change location/date
                 <Settings2 className="size-5"/>
               </button>
