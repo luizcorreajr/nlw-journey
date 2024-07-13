@@ -3,6 +3,7 @@ import { MapPin, Calendar, ArrowRight, UserRoundPlus, Settings2 } from 'lucide-r
 
 export function App() {
   const [isGuestsInputOpen, setIsGuestsInputOpen] = useState(false);
+  const [isGuestsModalOpen, setIsGuestsModalOpen] = useState(false);
 
   function openGuestsInput() {
     setIsGuestsInputOpen(true)
@@ -10,6 +11,10 @@ export function App() {
 
   function closeGuestsInput() {
     setIsGuestsInputOpen(false)
+  }
+
+  function openGuestsModal() {
+    setIsGuestsModalOpen(true);
   }
 
   return (
@@ -49,10 +54,10 @@ export function App() {
 
           {isGuestsInputOpen && (
             <div className="h-16 bg-zinc-900 px-4 rounded-xl flex items-center gap-3">
-              <div className="flex items-center gap-2 flex-1">
+              <button type="button" onClick={openGuestsModal} className="flex items-center gap-2 flex-1 text-left">
                 <UserRoundPlus className="size-5 text-zinc-400"/>
-                <input type="text" placeholder="Who will be on the trip?" className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1" />
-              </div>
+                <span className="text-zinc-400 text-lg flex-1">Who will be on the trip?</span>
+              </button>
 
               <div className="w-px h-6 bg-zinc-800"></div>
 
@@ -69,6 +74,15 @@ export function App() {
           agree to our <a className="text-zinc-300 underline" href="#">terms of use</a> and <a className="text-zinc-300 underline" href="#">privacy policies</a>.
         </p>
       </div>
+
+      {isGuestsModalOpen && (
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center">
+          <div className="w-[640px] rounded-xl py-5 px-6 shadow-shape bg-zinc-900">
+            <h2>Select guests</h2>
+
+          </div>
+        </div>
+      )}
     </div>
   )
 }
