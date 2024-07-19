@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { MapPin, Calendar, ArrowRight, UserRoundPlus, Settings2, X, AtSign, Plus, User } from 'lucide-react';
+import { MapPin, Calendar, ArrowRight, UserRoundPlus, Settings2, X, User } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { InviteGuestsModal } from './invite-guests-modal';
 
@@ -139,7 +139,12 @@ export function CreateTripPage() {
       </div>
 
       {isGuestsModalOpen && (
-        <InviteGuestsModal />
+        <InviteGuestsModal 
+          emailsToInvite={emailsToInvite} 
+          addNewEmailToInvite={addNewEmailToInvite} 
+          closeGuestsModal={closeGuestsModal} 
+          removeEmailFromInvite={removeEmailFromInvite}
+        />
       )}
 
       {isConfirmTripModalOpen && (

@@ -3,12 +3,18 @@ import type { FormEvent } from "react"
 
 interface InviteGuestsModalProps {
   closeGuestsModal: () => void
-  emailsToInvide: string[]
-  addNewEmailToInvide: (event: FormEvent<HTMLFormElement>) => void
+  emailsToInvite: string[]
+  addNewEmailToInvite: (event: FormEvent<HTMLFormElement>) => void
   removeEmailFromInvite: (email: string) => void
 }
 
-export function InviteGuestsModal(props: InviteGuestsModalProps) {
+export function InviteGuestsModal({
+  addNewEmailToInvite,
+  closeGuestsModal,
+  emailsToInvite,
+  removeEmailFromInvite,
+}: InviteGuestsModalProps) {
+  return (
   <div className="fixed inset-0 bg-black/60 flex items-center justify-center">
     <div className="w-[640px] rounded-xl py-5 px-6 shadow-shape bg-zinc-900 space-y-5">
       <div className="space-y-2">
@@ -24,8 +30,8 @@ export function InviteGuestsModal(props: InviteGuestsModalProps) {
       </div>
       <div className="flex flex-wrap gap-2">
         {emailsToInvite.map(email => {
-          return (
-            <div key={email} className="py-1.5 px-2.5 rounded-md bg-zinc-800 flex items-center gap-2">
+            return (
+                <div key={email} className="py-1.5 px-2.5 rounded-md bg-zinc-800 flex items-center gap-2">
               <span className="text-zinc-300">{email}</span>
               <button type="button" onClick={() => removeEmailFromInvite(email)}>
                 <X className="size-4 text-zinc-400"/>
@@ -45,7 +51,7 @@ export function InviteGuestsModal(props: InviteGuestsModalProps) {
             name="email" 
             placeholder="Enter the guest's email" 
             className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1"
-          />
+            />
         </div>
         <button type="submit" className="h-10 bg-lime-300 text-lime-950 rounded-lg px-5 font-medium flex items-center gap-2 hover:bg-lime-400">
           Invite
@@ -54,4 +60,4 @@ export function InviteGuestsModal(props: InviteGuestsModalProps) {
       </form>
     </div>
   </div>
-}
+)}
