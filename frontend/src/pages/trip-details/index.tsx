@@ -159,15 +159,19 @@ export function TripDetailsPage() {
                   className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1"
                 />
               </div>
-              {/* <div className="h-14 px-4 bg-zinc-950 border border-zinc-800 rounded-lg flex items-center gap-2">
-                <User className="text-zinc-400"/>
-                <input 
-                  type="email"
-                  name="email"
-                  placeholder="Your personal email" 
-                  className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1"
-                />
-              </div> */}
+
+              <div className="flex items-center gap-2">
+                <div className="h-14 flex-1 px-4 bg-zinc-950 border border-zinc-800 rounded-lg flex items-center gap-2">
+                  <Calendar className="text-zinc-400"/>
+                  <input 
+                    type="datetime-local"
+                    name="occurs_at"
+                    placeholder="Date and time" 
+                    className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1 [color-scheme:dark]"
+                  />
+                </div>
+              </div>
+
               <button type="submit" className="w-full h-11 justify-center bg-lime-300 text-lime-950 rounded-lg font-medium flex items-center gap-2 hover:bg-lime-400">
                 Save activity
               </button>
