@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { Calendar, CircleCheck, CircleDashed, Link2, MapPin, Plus, Settings2, UserCog } from "lucide-react";
+import { Calendar, MapPin, Plus, Settings2 } from "lucide-react";
 import { CreateActivityModal } from './create-activity-modal';
 import { ImportantLinks } from './important-links';
 import { Guests } from './guests';
+import { Activities } from './activities';
 
 export function TripDetailsPage() {
   const [isCreateActivityModalOpen, setIsCreateActivityModalOpen] = useState(false)
@@ -49,36 +50,7 @@ export function TripDetailsPage() {
             </button>
           </div>
 
-          <div className="space-y-8">
-            <div className="space-y-2.5">
-              <div className="flex gap-2 items-baseline">
-                <span className="text-xl text-zinc-300 font-semibold">Day 17</span>
-                <span className="text-xs text-zinc-500">Saturday</span>
-              </div>
-              <p className="text-sm text-zinc-500">No activity registered on this day</p>
-            </div>
-
-            <div className="space-y-2.5">
-              <div className="flex gap-2 items-baseline">
-                <span className="text-xl text-zinc-300 font-semibold">Day 18</span>
-                <span className="text-xs text-zinc-500">Sunday</span>
-              </div>
-              <div className="space-y-2.5">
-                <div className="px-4 py-2.5 bg-zinc-900 rounded-xl shadow-shape flex items-center gap-3">
-                  <CircleCheck className="size-5 text-lime-300"/>
-                  <span className="text-zinc-100">Group gym</span>
-                  <span className="text-zinc-100 text-sm ml-auto">8h00</span>
-                </div>
-              </div>
-              <div className="space-y-2.5">
-                <div className="px-4 py-2.5 bg-zinc-900 rounded-xl shadow-shape flex items-center gap-3">
-                  <CircleCheck className="size-5 text-lime-300"/>
-                  <span className="text-zinc-100">Group meeting</span>
-                  <span className="text-zinc-100 text-sm ml-auto">9h00</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Activities/>
         </div>
         
         <div className="w-80 space-y-6">
