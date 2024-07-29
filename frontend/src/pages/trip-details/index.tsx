@@ -167,7 +167,7 @@ export function TripDetailsPage() {
                     type="datetime-local"
                     name="occurs_at"
                     placeholder="Date and time" 
-                    className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1 [color-scheme:dark]"
+                    className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1"
                   />
                 </div>
               </div>
