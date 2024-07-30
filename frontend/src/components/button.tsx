@@ -18,11 +18,12 @@ const buttonVariants = tv({
 
 interface ButtonProps extends ComponentProps<'button'> {
   children: ReactNode
+  variant: "primary" | "secondary"
 }
 
-export function Button({ children, ...props }:ButtonProps) {
+export function Button({ children, variant, ...props }:ButtonProps) {
   return (
-    <button {...props} className={buttonVariants({ variant: 'secondary' })}>
+    <button {...props} className={buttonVariants({ variant })}>
       {children}
     </button>
   )

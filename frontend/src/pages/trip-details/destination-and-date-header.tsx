@@ -17,7 +17,7 @@ export function DestinationAndDateHeader() {
 
           <div className="w-px h-6 bg-zinc-800"/>
 
-          <Button>
+          <Button variant="secondary">
             Change location/date
             <Settings2 className="size-5 "/>
           </Button>
