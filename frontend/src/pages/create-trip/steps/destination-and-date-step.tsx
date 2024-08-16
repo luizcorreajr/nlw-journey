@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { MapPin, Calendar, Settings2, ArrowRight } from "lucide-react"
+import { MapPin, Calendar, Settings2, ArrowRight, X } from "lucide-react"
 import { Button } from "../../../components/button"
 
 interface DestinationAndDateStepProps {
@@ -17,6 +17,9 @@ export function DestinationAndDateStep({
 
   function openDatePicker() {
     return setIsDatePickerOpen(true)
+  }
+  function closeDatePicker() {
+    return setIsDatePickerOpen(false)
   }
 
   return (
@@ -37,6 +40,22 @@ export function DestinationAndDateStep({
           When?
         </span>
       </button>
+
+      {isDatePickerOpen && (
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center">
+          <div className="w-[640px] rounded-xl py-5 px-6 shadow-shape bg-zinc-900 space-y-5">
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <h2 className="text-lg font-semibold">Select date</h2>
+                <button type="button" onClick={closeDatePicker}>
+                  <X className="size-5 text-zinc-400"/>
+                </button>
+              </div>
+            </div>
+            <h1>Hello World!</h1>
+          </div>
+        </div>
+      )}
 
       <div className="w-px h-6 bg-zinc-800"/>
 
