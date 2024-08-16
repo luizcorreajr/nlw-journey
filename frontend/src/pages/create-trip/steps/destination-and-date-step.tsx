@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { MapPin, Calendar, Settings2, ArrowRight } from "lucide-react"
 import { Button } from "../../../components/button"
 
@@ -12,6 +13,12 @@ export function DestinationAndDateStep({
   closeGuestsInput,
   openGuestsInput,
 }: DestinationAndDateStepProps) {
+  const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
+
+  function openDatePicker() {
+    return setIsDatePickerOpen(true)
+  }
+
   return (
     <div className="h-16 bg-zinc-900 px-4 rounded-xl flex items-center gap-3">
       <div className="flex items-center gap-2 flex-1">
@@ -24,7 +31,7 @@ export function DestinationAndDateStep({
         />
       </div>
 
-      <button disabled={isGuestsInputOpen} className="flex items-center gap-2 text-left">
+      <button onClick={openDatePicker} disabled={isGuestsInputOpen} className="flex items-center gap-2 text-left">
         <Calendar className="size-5 text-zinc-400"/>
         <span className="text-lg text-zinc-400 w-40"> 
           When?
