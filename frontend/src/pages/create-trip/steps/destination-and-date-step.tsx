@@ -24,15 +24,12 @@ export function DestinationAndDateStep({
         />
       </div>
 
-      <div className="flex items-center gap-2 ">
+      <button disabled={isGuestsInputOpen} className="flex items-center gap-2 text-left">
         <Calendar className="size-5 text-zinc-400"/>
-        <input 
-          disabled={isGuestsInputOpen} 
-          type="text" 
-          placeholder="When?" 
-          className="bg-transparent text-lg placeholder-zinc-400 w-40 outline-none" 
-        />
-      </div>
+        <span className="text-lg text-zinc-400 w-40"> 
+          When?
+        </span>
+      </button>
 
       <div className="w-px h-6 bg-zinc-800"/>
 
