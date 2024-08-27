@@ -9,12 +9,14 @@ interface DestinationAndDateStepProps {
   isGuestsInputOpen: boolean
   closeGuestsInput: () => void
   openGuestsInput: () => void
+  setDestination: (destination: string) => void 
 }
 
 export function DestinationAndDateStep({
   isGuestsInputOpen,
   closeGuestsInput,
   openGuestsInput,
+  setDestination
 }: DestinationAndDateStepProps) {
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
   const [eventStartAndEndDates, setEventStartAndEndDates] = useState<DateRange | undefined>()
@@ -39,6 +41,7 @@ export function DestinationAndDateStep({
           type="text" 
           placeholder="Where are you going?" 
           className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1" 
+          onChange={event => setDestination(event.target.value)}
         />
       </div>
 
