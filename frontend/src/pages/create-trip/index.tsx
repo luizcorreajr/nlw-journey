@@ -89,6 +89,8 @@ export function CreateTripPage() {
             closeGuestsInput={closeGuestsInput}
             openGuestsInput={openGuestsInput}
             setDestination={setDestination}
+            eventStartAndEndDates={eventStartAndEndDates}
+            setEventStartAndEndDates={setEventStartAndEndDates}
           />
            
           {isGuestsInputOpen && (
@@ -118,7 +120,10 @@ export function CreateTripPage() {
       {isConfirmTripModalOpen && (
         <ConfirmTripModal 
           closeConfirmTripModal={closeConfirmTripModal} 
-          createTrip={createTrip}/>
+          createTrip={createTrip}
+          setOwnerName={setOwnerName}
+          setOwnerEmail={setOwnerEmail}
+        />
       )}
 
     </div>

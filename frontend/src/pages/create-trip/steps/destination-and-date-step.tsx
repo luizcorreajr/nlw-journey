@@ -10,16 +10,19 @@ interface DestinationAndDateStepProps {
   closeGuestsInput: () => void
   openGuestsInput: () => void
   setDestination: (destination: string) => void 
+  eventStartAndEndDates: DateRange | undefined
+  setEventStartAndEndDates: (dates: DateRange | undefined) => void
 }
 
 export function DestinationAndDateStep({
   isGuestsInputOpen,
   closeGuestsInput,
   openGuestsInput,
-  setDestination
+  setDestination,
+  setEventStartAndEndDates,
+  eventStartAndEndDates,
 }: DestinationAndDateStepProps) {
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
-  const [eventStartAndEndDates, setEventStartAndEndDates] = useState<DateRange | undefined>()
 
   function openDatePicker() {
     return setIsDatePickerOpen(true)
