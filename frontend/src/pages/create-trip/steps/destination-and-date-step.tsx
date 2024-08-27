@@ -1,7 +1,8 @@
 import { useState } from "react"
-import { DayPicker, DateRange } from "react-day-picker"
-import { MapPin, Calendar, Settings2, ArrowRight, X } from "lucide-react"
 import { Button } from "../../../components/button"
+import { MapPin, Calendar, Settings2, ArrowRight, X } from "lucide-react"
+import { DayPicker, type DateRange } from "react-day-picker"
+import { format } from 'date-fns'
 import "react-day-picker/dist/style.css"
 
 interface DestinationAndDateStepProps {
@@ -25,6 +26,10 @@ export function DestinationAndDateStep({
     return setIsDatePickerOpen(false)
   }
 
+  const displayedDate = eventStartAndEndDates && eventStartAndEndDates.from && eventStartAndEndDates.to
+  ? format(eventStartAndEndDates.from, "d' of 'LLL").concat(' to ').concat(format(eventStartAndEndDates.from, "d' of 'LLL"))
+  : null
+
   return (
     <div className="h-16 bg-zinc-900 px-4 rounded-xl flex items-center gap-3">
       <div className="flex items-center gap-2 flex-1">
@@ -37,10 +42,10 @@ export function DestinationAndDateStep({
         />
       </div>
 
-      <button onClick={openDatePicker} disabled={isGuestsInputOpen} className="flex items-center gap-2 text-left">
+      <button onClick={openDatePicker} disabled={isGuestsInputOpen} className="flex items-center gap-2 text-left w-[240px]">
         <Calendar className="size-5 text-zinc-400"/>
-        <span className="text-lg text-zinc-400 w-40"> 
-          When?
+        <span className="text-lg text-zinc-400 w-40 flex-1"> 
+          {displayedDate || "When?"}
         </span>
       </button>
 
