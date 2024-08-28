@@ -90,10 +90,10 @@ export function CreateTripPage() {
     if (!ownerEmail || !ownerName) {
       return
     }
-
+    
     const response = await api.post('/trips', {
       destination,
-      start_at: eventStartAndEndDates.from,
+      starts_at: eventStartAndEndDates.from,
       ends_at: eventStartAndEndDates.to,
       emails_to_invite: emailsToInvite,
       owner_name: ownerName,
